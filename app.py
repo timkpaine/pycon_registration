@@ -1,4 +1,5 @@
 import sys
+import os
 from subprocess import Popen, PIPE
 from flask import Flask, request
 
@@ -73,4 +74,4 @@ def post():
     return "not found"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True, port=80)
+    app.run(host='0.0.0.0', debug=True, port=int(os.environ.get('PORT', 80)))
